@@ -3,8 +3,8 @@
 
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'ngajiku');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_USER', 'iqbal');
+define('DB_PASS', '#iqbaldebian#');
 define('DB_CHARSET', 'utf8mb4');
 
 define('SITE_NAME', 'NgajiKu');
