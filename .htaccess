@@ -1,0 +1,7 @@
+Options -Indexes
+php_flag display_errors Off
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /ngajiku/
+</IfModule>

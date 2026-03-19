@@ -1,0 +1,12 @@
+Options -Indexes
+
+# Protect uploads folder from direct PHP execution
+<FilesMatch "\.(php|php5|phtml)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Allow access to the main entry points only
+<Files "index.php">
+    Allow from all
+</Files>
