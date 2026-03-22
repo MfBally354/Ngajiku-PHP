@@ -23,7 +23,7 @@ services:
     container_name: DATABASE-NIH-COYYY
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: blog_sederhana
+      MYSQL_DATABASE: ngajiku
       MYSQL_ROOT_PASSWORD: "#iqbaldebian#"
       MYSQL_USER: blog_user
       MYSQL_PASSWORD: blog_password
