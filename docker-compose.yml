@@ -1,0 +1,53 @@
+services:
+  # ─── Web Server (PHP + Apache) ────────────────────────────
+  app:
+    build: .
+    container_name: Ngajiku-PHP
+    restart: unless-stopped
+    ports:
+      - "8091:80"
+    volumes:
+      - .:/var/www/html
+      - uploads_data:/var/www/html/assets/images/articles
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - blog_network
+
+  # ─── Database (MySQL) ─────────────────────────────────────
+  db:
+    image: mysql:8.0
+    container_name: DATABASE-NIH-COYYY
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: blog_sederhana
+      MYSQL_ROOT_PASSWORD: "#iqbaldebian#"
+      MYSQL_USER: blog_user
+      MYSQL_PASSWORD: blog_password
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./sql/database.sql:/docker-entrypoint-initdb.d/database.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p#iqbaldebian#"]
+      interval: 15s
+      timeout: 10s
+      retries: 15
+      start_period: 180s
+    networks:
+      - blog_network
+
+# ─── Volumes ──────────────────────────────────────────────
+volumes:
+  db_data:
+  uploads_data:
+
+# ─── Networks ─────────────────────────────────────────────
+networks:
+  blog_network:
+    driver: bridge
+
