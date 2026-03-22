@@ -3,12 +3,12 @@
 
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'ngajiku');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_USER', 'ngajiku_user');
+define('DB_PASS', 'iqbaldebian');
 define('DB_CHARSET', 'utf8mb4');
 
 define('SITE_NAME', 'NgajiKu');
-define('SITE_URL', 'http://localhost/ngajiku');
+define('SITE_URL', 'http://100.72.99.104/ngajiku');
 define('UPLOAD_PATH', __DIR__ . '/../uploads/');
 define('UPLOAD_URL', SITE_URL . '/uploads/');
 define('MAX_FILE_SIZE', 10 * 1024 * 1024); // 10 MB
