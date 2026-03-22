@@ -24,7 +24,7 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: ngajiku
-      MYSQL_ROOT_PASSWORD: "iqbaldebian"
+      MYSQL_ROOT_PASSWORD: "#iqbaldebian#"
       MYSQL_USER: blog_user
       MYSQL_PASSWORD: blog_password
     ports:
