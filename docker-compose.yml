@@ -26,7 +26,7 @@ services:
       MYSQL_DATABASE: ngajiku
       MYSQL_ROOT_PASSWORD: "#iqbaldebian#"
       MYSQL_USER: ngajiku_user
-      MYSQL_PASSWORD: blog_password
+      MYSQL_PASSWORD: "iqbaldebian"
     ports:
       - "3307:3306"
     volumes:
