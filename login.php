@@ -220,7 +220,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="demo-box">
             <strong>Akun Demo:</strong><br>
             admin@ngajiku.id / ahmad@ngajiku.id / budi@ngajiku.id / rafi@ngajiku.id<br>
-            Password semua: <strong>password</strong>
+            Password semua: <strong>password123</strong>
         </div>
     </div>
 </div>
