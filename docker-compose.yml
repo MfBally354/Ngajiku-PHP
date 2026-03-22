@@ -25,7 +25,7 @@ services:
     environment:
       MYSQL_DATABASE: ngajiku
       MYSQL_ROOT_PASSWORD: "#iqbaldebian#"
-      MYSQL_USER: blog_user
+      MYSQL_USER: ngajiku_user
       MYSQL_PASSWORD: blog_password
     ports:
       - "3307:3306"
