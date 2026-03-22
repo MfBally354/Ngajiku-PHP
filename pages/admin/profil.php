@@ -1,7 +1,6 @@
 <?php
 // profil.php — template universal, disimpan di masing-masing folder role
 // Deteksi folder berdasarkan path
-session_start();
 require_once '../../includes/auth_check.php';
 
 $db   = getDB();

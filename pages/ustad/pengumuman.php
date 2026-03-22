@@ -1,6 +1,5 @@
 <?php
 // pages/ustad/pengumuman.php  (juga berlaku untuk admin dengan path berbeda)
-session_start();
 require_once '../../includes/auth_check.php';
 requireRole(['admin','ustad']);
 

@@ -12,3 +12,6 @@ require_once __DIR__ . '/functions.php';
 if (!isLoggedIn()) {
     redirect(SITE_URL . '/login.php?redirect=' . urlencode($_SERVER['REQUEST_URI']));
 }
+
+// Pastikan $user selalu tersedia di semua halaman yang include file ini
+$user = currentUser();

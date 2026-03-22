@@ -1,6 +1,5 @@
 <?php
 // pages/parent/absensi.php
-session_start();
 require_once '../../includes/auth_check.php';
 requireRole('parent');
 
