@@ -2,7 +2,7 @@ services:
   # ─── Web Server (PHP + Apache) ────────────────────────────
   app:
     build: .
-    container_name: Ngajiku-PHP
+    container_name: Ngajiku-PHP-HAHAHA
     restart: unless-stopped
     ports:
       - "8091:80"
