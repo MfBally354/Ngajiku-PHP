@@ -2,6 +2,7 @@
 
 Platform manajemen pembelajaran ngaji berbasis web (PHP + MySQL + Bootstrap 5).
 <img width="1019" height="570" alt="image" src="https://github.com/user-attachments/assets/cc3fa7cf-33d6-4d6d-b491-d8606833c856" />
+<img width="1920" height="1080" alt="Screenshot (803)" src="https://github.com/user-attachments/assets/922faedc-4064-4f0c-9418-035a5f2656e3" />
 
 ## Fitur Utama
 
