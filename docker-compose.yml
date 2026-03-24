@@ -47,7 +47,7 @@ volumes:
   uploads_data:
 
 # ─── Networks ─────────────────────────────────────────────
-networks:
+networks: 
   blog_network:
     driver: bridge
 
