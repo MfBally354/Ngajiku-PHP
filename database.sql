@@ -194,8 +194,8 @@ CREATE TABLE hafalan (
 
 -- Admin default (password: admin123)
 INSERT INTO users (nama, email, password, role) VALUES
-('Administrator', 'admin@ngajiku.id', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uRpFERe6i', 'admin'),
-('Ustadz Ahmad', 'ahmad@ngajiku.id', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uRpFERe6i', 'ustad'),
-('Bapak Budi', 'budi@ngajiku.id', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uRpFERe6i', 'parent'),
-('Muhammad Rafi', 'rafi@ngajiku.id', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uRpFERe6i', 'santri');
+('Administrator', 'admin@ngajiku.id', '$2y$10$ir1VS1eXsifJyIEatuL2uelTe77qH0xBzAHb7aLqlNdFqHIiQ2Lpy', 'admin'),
+('Ustadz Ahmad', 'ahmad@ngajiku.id', '$$2y$10$ir1VS1eXsifJyIEatuL2uelTe77qH0xBzAHb7aLqlNdFqHIiQ2Lpy', 'ustad'),
+('Bapak Budi', 'budi@ngajiku.id', '$2y$10$ir1VS1eXsifJyIEatuL2uelTe77qH0xBzAHb7aLqlNdFqHIiQ2Lpy', 'parent'),
+('Muhammad Rafi', 'rafi@ngajiku.id', '$2y$10$ir1VS1eXsifJyIEatuL2uelTe77qH0xBzAHb7aLqlNdFqHIiQ2Lpy', 'santri');
 -- Password semua akun default: password
