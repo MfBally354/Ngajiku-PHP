@@ -198,4 +198,4 @@ INSERT INTO users (nama, email, password, role) VALUES
 ('Ustadz Ahmad', 'ahmad@ngajiku.id', '$$2y$10$ir1VS1eXsifJyIEatuL2uelTe77qH0xBzAHb7aLqlNdFqHIiQ2Lpy', 'ustad'),
 ('Bapak Budi', 'budi@ngajiku.id', '$2y$10$ir1VS1eXsifJyIEatuL2uelTe77qH0xBzAHb7aLqlNdFqHIiQ2Lpy', 'parent'),
 ('Muhammad Rafi', 'rafi@ngajiku.id', '$2y$10$ir1VS1eXsifJyIEatuL2uelTe77qH0xBzAHb7aLqlNdFqHIiQ2Lpy', 'santri');
--- Password semua akun default: password 
+-- Password semua akun default: password
