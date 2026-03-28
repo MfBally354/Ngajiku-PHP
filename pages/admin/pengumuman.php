@@ -62,7 +62,7 @@ require_once '../../includes/header.php';
                     <small class="text-muted"><?= formatTanggal($p['created_at']) ?></small>
                 </div>
                 <h6 style="font-weight:700;margin-bottom:8px"><?= sanitize($p['judul']) ?></h6>
-                <p style="font-size:13px;color:#555;margin-bottom:12px"><?= nl2br(sanitize(substr($p['isi'],0,160))) ?>...</p>
+                <p style="font-size:13px;color:#555;margin-bottom:12px;line-height:1.6"><?= nl2br(sanitize($p['isi'])) ?></p>
                 <div class="d-flex justify-content-between align-items-center">
                     <small class="text-muted"><i class="fas fa-user me-1"></i><?= sanitize($p['penulis']) ?></small>
                     <form method="POST" class="d-inline">
