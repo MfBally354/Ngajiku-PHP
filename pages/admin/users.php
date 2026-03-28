@@ -265,7 +265,7 @@ require_once '../../includes/header.php';
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Telepon</label>
-                            <input type="text" name="telepon" class="form-control" value="<?= sanitize($editUser['telepon']) ?>">
+                            <input type="text" name="telepon" class="form-control" value="<?= sanitize($editUser['telepon'] ?? '') ?>">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Status</label>
