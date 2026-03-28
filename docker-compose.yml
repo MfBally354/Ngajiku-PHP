@@ -17,7 +17,7 @@ services:
     networks:
       - blog_network
 
-  # ─── Database (MySQL) ─────────────────────────────────────
+  # ─── Database (MySQL) ───────────────────────────────────── 
   db:
     image: mysql:8.0
     container_name: DATABASE-NIH-COYYY
