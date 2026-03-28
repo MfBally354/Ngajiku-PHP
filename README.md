@@ -134,15 +134,15 @@ ngajiku/
 ├── logout.php                # Proses logout
 └── router.php                # Redirect berdasarkan role
 ```
----
+
 
 ## Menghubungkan akun parent ke santri
-- Cara menghubungkan akun parent ke santri dilakukan langsung di database
-- ```sudo mysql ngajiku```
-- ```SELECT id, nama, role FROM users;```
-- Setelah tahu ID-nya, misalnya parent ID=3 dan santri ID=4:
--  ```INSERT INTO parent_santri (parent_id, santri_id) VALUES (3, 4);```
----
+ Cara menghubungkan akun parent ke santri dilakukan langsung di database
+ ```sudo mysql ngajiku```
+ ```SELECT id, nama, role FROM users;```
+ Setelah tahu ID-nya, misalnya parent ID=3 dan santri ID=4:
+  ```INSERT INTO parent_santri (parent_id, santri_id) VALUES (3, 4);```
+
 
 ---
 
