@@ -3,7 +3,7 @@
 require_once '../../includes/auth_check.php';
 requireRole(['admin','ustad']);
 
-// Sama persis dengan ustad/pengumuman.php, hanya include path yang berbeda 
+// Sama persis dengan ustad/pengumuman.php, hanya include path yang berbeda
 $db   = getDB();
 $uid  = $user['id'];
 $role = $user['role'];
