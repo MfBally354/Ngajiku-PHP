@@ -1,7 +1,7 @@
 # NgajiKu — Platform E-Learning Ngaji
 123
 Platform manajemen pembelajaran ngaji berbasis web (PHP + MySQL + Bootstrap 5).
-<img width="1019" height="570" alt="image" src="https://github.com/user-attachments/assets/cc3fa7cf-33d6-4d6d-b491-d8606833c856" />
+![WhatsApp Image 2026-04-02 at 12 24 23](https://github.com/user-attachments/assets/efcd5571-2bb2-4c77-82b3-d34e880fc4b6)
 <img width="1920" height="896" alt="Screenshot (803)" src="https://github.com/user-attachments/assets/6fd10101-e6ba-482b-b359-97ab05d744b3" />
 
 ## Fitur Utama
