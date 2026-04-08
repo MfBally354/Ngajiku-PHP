@@ -5,19 +5,18 @@ include '../../includes/header.php';
 ?>
 
 <div class="container-fluid p-4">
-    <h1 class="h3 mb-4">Pengawasan Masukkan Keuangan</h1>
+    <div class="d-flex justify-content-between mb-4">
+        <h1 class="h3">Pengawasan Arus Kas</h1>
+        <button onclick="window.print()" class="btn btn-secondary btn-sm">Cetak Laporan</button>
+    </div>
 
     <div class="card shadow">
-        <div class="card-header py-3 d-flex justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Log Audit Transaksi</h6>
-            <button onclick="window.print()" class="btn btn-sm btn-secondary">Cetak PDF</button>
-        </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                    <thead class="bg-light">
+                <table class="table table-hover table-bordered">
+                    <thead class="table-success">
                         <tr>
-                            <th>Waktu</th>
+                            <th>Tanggal</th>
                             <th>Keterangan</th>
                             <th>Kategori</th>
                             <th>Nominal</th>
@@ -25,18 +24,22 @@ include '../../includes/header.php';
                     </thead>
                     <tbody>
                         <?php
-                        $data = mysqli_query($conn, "SELECT * FROM log_keuangan ORDER BY tanggal DESC");
-                        while($row = mysqli_fetch_assoc($data)):
+                        $res = mysqli_query($conn, "SELECT * FROM log_keuangan ORDER BY tanggal DESC");
+                        while($row = mysqli_fetch_assoc($res)):
                         ?>
                         <tr>
-                            <td><?= $row['tanggal'] ?></td>
+                            <td><?= date('d/m/Y H:i', strtotime($row['tanggal'])) ?></td>
                             <td><?= htmlspecialchars($row['keterangan']) ?></td>
                             <td>
-                                <span class="badge <?= $row['kategori'] == 'Masuk' ? 'bg-success' : 'bg-danger' ?>">
-                                    <?= $row['kategori'] ?>
-                                </span>
+                                <?php if($row['kategori'] == 'Infaq'): ?>
+                                    <span class="badge bg-warning text-dark">Infaq</span>
+                                <?php elseif($row['kategori'] == 'Masuk'): ?>
+                                    <span class="badge bg-success">Masuk</span>
+                                <?php else: ?>
+                                    <span class="badge bg-danger">Keluar</span>
+                                <?php endif; ?>
                             </td>
-                            <td>Rp <?= number_format($row['jumlah'], 0, ',', '.') ?></td>
+                            <td><strong>Rp <?= number_format($row['jumlah'], 0, ',', '.') ?></strong></td>
                         </tr>
                         <?php endwhile; ?>
                     </tbody>
