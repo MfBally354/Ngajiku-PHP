@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Email dan password wajib diisi.';
     } else {
         $db   = getDB();
-        $stmt = $db->prepare("SELECT * FROM users WHERE email = ? AND status = 'aktif' LIMIT 1");
+        $stmt = $db->prepare("SELECT * FROM users WHERE email = ? AND status = 'aktif' LIMIT 1"); 
         $stmt->execute([$email]);
         $user = $stmt->fetch();
 
