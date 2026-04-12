@@ -6,7 +6,7 @@ requireRole('admin');
 $db = getDB();
 $pageTitle = 'Dashboard Admin';
 
-// Statistik
+// Statistik 
 $stats = [
     'total_user'    => $db->query("SELECT COUNT(*) FROM users")->fetchColumn(),
     'total_santri'  => $db->query("SELECT COUNT(*) FROM users WHERE role='santri'")->fetchColumn(),
