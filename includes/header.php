@@ -47,6 +47,7 @@ $pageTitle = $pageTitle ?? SITE_NAME;
                 ['icon'=>'fa-book',        'label'=>'Materi',        'url'=>$base.'/materi.php'],
                 ['icon'=>'fa-bullhorn',    'label'=>'Pengumuman',    'url'=>$base.'/pengumuman.php'],
                 ['icon'=>'fa-chart-bar',   'label'=>'Laporan',       'url'=>$base.'/laporan.php'],
+                ['icon'=>'fa-money-bill-wave', 'label'=>'Keuangan', 'url'=>$base.'/keuangan.php'],
             ];
         } elseif ($role === 'ustad') {
             $menus = [
