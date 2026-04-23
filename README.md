@@ -136,6 +136,180 @@ ngajiku/
 ```
 ---
 
+```
+🔄 Alur Utama Sistem
+Admin → Buat Kelas → Assign Ustad → Daftarkan Santri → Hubungkan ke Orang Tua
+                                          ↓
+                              Proses Pembelajaran Berjalan
+                                          ↓
+                    ┌─────────────────────┼─────────────────────┐
+                    ↓                     ↓                     ↓
+             Ustad Input            Ustad Catat           Ustad Buat
+             Nilai Santri           Absensi Harian         Tugas
+                    ↓                     ↓                     ↓
+                    └─────────────────────┼─────────────────────┘
+                                          ↓
+                              Santri & Orang Tua
+                              Bisa Memantau Progress
+
+👤 Proses Per Role
+1. Admin
+Login sebagai Admin
+    │
+    ├── Kelola Pengguna
+    │       ├── Tambah akun Ustad, Santri, Orang Tua
+    │       ├── Edit / nonaktifkan akun
+    │       └── Hubungkan akun Orang Tua ke Santri
+    │
+    ├── Kelola Kelas
+    │       ├── Buat kelas baru
+    │       ├── Assign Ustad pengampu
+    │       └── Daftarkan Santri ke kelas
+    │
+    ├── Kelola Keuangan
+    │       ├── Catat pemasukan (Infaq, SPP, Donasi)
+    │       ├── Catat pengeluaran (Operasional, dll)
+    │       ├── Atur & bayar gaji Ustad per bulan
+    │       └── Lihat laporan & grafik keuangan
+    │
+    ├── Kirim Pengumuman
+    │       └── Target: semua role / kelas tertentu
+    │
+    └── Lihat Laporan
+            ├── Statistik platform
+            ├── Rekap nilai per kelas
+            └── Rekap absensi bulanan
+2. Ustad
+Login sebagai Ustad
+    │
+    ├── Lihat Dashboard
+    │       ├── Ringkasan kelas yang diampu
+    │       └── Notifikasi tugas belum dinilai
+    │
+    ├── Kelola Materi
+    │       ├── Upload materi (PDF, video, gambar, link, teks)
+    │       ├── Kategorikan (Al-Quran, Fiqih, Aqidah, dll)
+    │       └── Atur visibilitas (publik / draft)
+    │
+    ├── Kelola Tugas
+    │       ├── Buat tugas dengan deadline
+    │       ├── Upload file soal (opsional)
+    │       └── Nilai jawaban yang dikumpulkan santri
+    │
+    ├── Input Nilai
+    │       ├── Nilai harian, ulangan, ujian, hafalan, praktik
+    │       └── Lihat rekap nilai per santri
+    │
+    ├── Catat Absensi
+    │       ├── Input hadir / izin / sakit / alpha per hari
+    │       └── Lihat rekap absensi bulanan
+    │
+    ├── Rekap Hafalan
+    │       ├── Catat hafalan santri (surah, ayat, doa, hadits)
+    │       └── Beri nilai A/B/C/D
+    │
+    └── Kirim Pengumuman
+            └── Target: santri & orang tua di kelasnya
+3. Santri
+Login sebagai Santri
+    │
+    ├── Lihat Dashboard
+    │       ├── Ringkasan kelas aktif
+    │       ├── Tugas yang belum dikumpulkan
+    │       └── Nilai terbaru
+    │
+    ├── Akses Materi
+    │       ├── Baca / tonton materi dari Ustad
+    │       └── Filter berdasarkan kategori
+    │
+    ├── Kumpulkan Tugas
+    │       ├── Upload file jawaban atau tulis teks
+    │       └── Lihat status & nilai tugas
+    │
+    ├── Pantau Nilai
+    │       ├── Nilai harian, ulangan, ujian
+    │       └── Nilai tugas yang sudah dinilai
+    │
+    ├── Lihat Absensi
+    │       └── Rekap kehadiran per bulan
+    │
+    ├── Lihat Hafalan
+    │       └── Riwayat hafalan & nilai dari Ustad
+    │
+    └── Lihat Pengumuman
+            └── Dari Ustad dan Admin
+4. Orang Tua
+Login sebagai Orang Tua
+    │
+    ├── Lihat Dashboard Anak
+    │       ├── Rata-rata nilai anak
+    │       ├── Kehadiran bulan ini
+    │       └── Status tugas anak
+    │
+    ├── Pantau Nilai Anak
+    │       ├── Nilai harian, ulangan, ujian
+    │       └── Nilai tugas
+    │
+    ├── Pantau Absensi Anak
+    │       └── Rekap hadir / izin / sakit / alpha
+    │
+    ├── Lihat Materi
+    │       └── Materi yang diajarkan ke anak
+    │
+    └── Lihat Pengumuman
+            └── Dari Ustad dan Admin
+
+💰 Proses Bisnis Keuangan
+Admin Buka Modul Keuangan
+    │
+    ├── Pemasukan
+    │       ├── Infaq / Sedekah dari santri atau donatur
+    │       ├── SPP / Iuran bulanan per santri
+    │       └── Donasi lainnya
+    │
+    ├── Pengeluaran
+    │       ├── Gaji Ustad (dibayar per bulan)
+    │       ├── Operasional (listrik, air, ATK, dll)
+    │       └── Pengeluaran lain-lain
+    │
+    ├── Manajemen Gaji Ustad
+    │       ├── Admin atur gaji pokok per ustad
+    │       ├── Setiap bulan admin klik "Bayar"
+    │       └── Otomatis tercatat sebagai pengeluaran
+    │
+    └── Laporan
+            ├── Grafik pemasukan vs pengeluaran
+            ├── Rekap per kategori
+            ├── Laporan bulanan & tahunan
+            └── Log pengawasan semua transaksi
+
+🔐 Alur Keamanan
+Setiap Request Masuk
+    │
+    ├── Cek Session → Belum login? → Redirect ke /login.php
+    │
+    ├── Cek Role → Role tidak sesuai? → Redirect ke /login.php
+    │
+    ├── Sanitasi Input → htmlspecialchars() untuk semua input
+    │
+    ├── Query Database → PDO Prepared Statements (anti SQL Injection)
+    │
+    └── Upload File → Validasi tipe & ukuran file
+
+📊 Relasi Antar Entitas
+Admin
+  └── Membuat ──→ Kelas ←── Diampu oleh ── Ustad
+                   │
+                   └── Diikuti oleh ──→ Santri ←── Dipantau oleh ── Orang Tua
+                                          │
+                              ┌───────────┼───────────┐
+                              ↓           ↓           ↓
+                           Nilai      Absensi      Tugas
+                                                     │
+                                              Dikumpulkan
+                                              Dinilai Ustad
+```
+
 ## Menghubungkan akun parent ke santri
 - Cara menghubungkan akun parent ke santri dilakukan langsung di database
 - ```sudo mysql ngajiku```
