@@ -311,6 +311,36 @@ Admin
                                               Dikumpulkan
                                               Dinilai Ustad
 ```
+## Proses Bisnis (Business Process)
+Proses bisnis menjelaskan bagaimana alur kerja antar aktor dalam sistem untuk mencapai tujuan lembaga pengajian. Berdasarkan diagram konteks yang Anda unggah, berikut adalah alur utamanya:
+
+- Manajemen Pengguna & Sistem (Admin): Admin melakukan registrasi data user (santri, ustadz, orang tua) dan melakukan konfigurasi sistem serta memantau log aktivitas untuk memastikan sistem berjalan lancar.
+
+- Proses Belajar Mengajar (Ustadz & Santri): Ustadz mengunggah materi pembelajaran dan memberikan tugas kepada santri. Santri mengakses materi tersebut, mengerjakan, dan mengirimkan jawaban kembali ke sistem untuk dinilai oleh ustadz.
+
+- Evaluasi & Monitoring (Ustadz & Orang Tua): Ustadz menginput nilai (harian, hafalan, ujian) dan absensi harian. Data ini diolah sistem menjadi laporan perkembangan (rapor) yang dapat diakses oleh orang tua sebagai sarana monitoring hasil evaluasi belajar anak.
+
+- Pengelolaan Keuangan (Pengelola Keuangan): Sistem menyediakan data rekap kehadiran santri sebagai dasar penagihan. Pengelola keuangan mengelola data tagihan dan pembayaran santri, mencatat infaq, serta mengajukan permintaan pembayaran gaji guru berdasarkan data kehadiran yang terekam di sistem.
+
+## Cara Kerja Kode (System Logic)
+Aplikasi ini dibangun menggunakan arsitektur Three-Tier (Presentation, Logic, dan Data Layer) dengan alur kerja sebagai berikut:
+
+**A. Alur Inisialisasi & Keamanan**
+- Koneksi Database: File config/database.php dipanggil di setiap halaman untuk membuka koneksi ke MySQL menggunakan PDO atau MySQLi agar data dapat ditarik.
+
+- Autentikasi (Auth Check): Sebelum halaman dimuat, file includes/auth_check.php memeriksa apakah pengguna sudah login. Jika belum, pengguna diarahkan kembali ke login.php.
+
+- Verifikasi Role (Routing): File router.php memeriksa tingkatan akses (role) pengguna (Admin, Ustadz, dll.) untuk memastikan mereka hanya dapat mengakses folder halaman (pages/) yang sesuai dengan hak aksesnya.
+
+**B. Pengolahan Data (CRUD & Logic)**
+- Input Data: Saat pengguna mengisi form (misalnya input infaq di dashboard.php), data dikirim melalui metode POST ke server.
+
+- Sanitasi & Keamanan: Kode menggunakan htmlspecialchars() untuk membersihkan input dari script berbahaya dan Prepared Statements untuk mencegah serangan SQL Injection sebelum data disimpan ke tabel database.
+
+- Penyajian Visual: Di halaman seperti laporan.php, kode PHP melakukan query agregasi (seperti SUM atau COUNT) untuk mengambil total keuangan atau jumlah santri, lalu data tersebut dioper ke pustaka JavaScript (seperti Chart.js) untuk ditampilkan dalam bentuk diagram.
+
+**C. Manajemen File**
+- Sistem menyimpan referensi nama file di database, sementara file fisik (seperti PDF materi atau gambar tugas) disimpan di folder uploads/materi/ atau uploads/tugas/. Saat santri ingin belajar, sistem akan memanggil path file tersebut untuk ditampilkan di browser.
 
 ## Menghubungkan akun parent ke santri
 - Cara menghubungkan akun parent ke santri dilakukan langsung di database
