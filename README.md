@@ -3,6 +3,8 @@
 Platform manajemen pembelajaran ngaji berbasis web (PHP + MySQL + Bootstrap 5).
 ![WhatsApp Image 2026-04-02 at 12 24 23](https://github.com/user-attachments/assets/efcd5571-2bb2-4c77-82b3-d34e880fc4b6)
 <img width="1920" height="896" alt="Screenshot (803)" src="https://github.com/user-attachments/assets/6fd10101-e6ba-482b-b359-97ab05d744b3" />
+<img width="2816" height="1536" alt="Gemini_Generated_Image_qcbnf9qcbnf9qcbn" src="https://github.com/user-attachments/assets/6cf9253f-3355-4148-b350-c705a5c95b00" />
+
 
 ## Fitur Utama
 
