@@ -199,3 +199,76 @@ INSERT INTO users (nama, email, password, role) VALUES
 ('Bapak Budi', 'budi@ngajiku.id', '$2y$10$ir1VS1eXsifJyIEatuL2uelTe77qH0xBzAHb7aLqlNdFqHIiQ2Lpy', 'parent'),
 ('Muhammad Rafi', 'rafi@ngajiku.id', '$2y$10$ir1VS1eXsifJyIEatuL2uelTe77qH0xBzAHb7aLqlNdFqHIiQ2Lpy', 'santri');
 -- Password semua akun default: password
+
+-- Tabel kategori keuangan
+CREATE TABLE IF NOT EXISTS kategori_keuangan (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nama VARCHAR(100) NOT NULL,
+    jenis ENUM('masuk','keluar') NOT NULL,
+    ikon VARCHAR(50) DEFAULT 'fa-circle',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabel transaksi keuangan utama
+CREATE TABLE IF NOT EXISTS transaksi_keuangan (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    kategori_id INT,
+    jenis ENUM('masuk','keluar') NOT NULL,
+    sumber ENUM('infaq','spp','pengeluaran','gaji','lainnya') NOT NULL DEFAULT 'lainnya',
+    keterangan VARCHAR(255) NOT NULL,
+    jumlah DECIMAL(15,0) NOT NULL,
+    santri_id INT NULL,       -- jika terkait santri (SPP/infaq)
+    ustad_id INT NULL,        -- jika terkait ustad (gaji)
+    dicatat_oleh INT NOT NULL,
+    bukti_file VARCHAR(255) NULL,
+    tanggal DATE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (kategori_id) REFERENCES kategori_keuangan(id) ON DELETE SET NULL,
+    FOREIGN KEY (santri_id) REFERENCES users(id) ON DELETE SET NULL,
+    FOREIGN KEY (ustad_id) REFERENCES users(id) ON DELETE SET NULL,
+    FOREIGN KEY (dicatat_oleh) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Tabel gaji ustad per bulan
+CREATE TABLE IF NOT EXISTS gaji_ustad (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    ustad_id INT NOT NULL,
+    bulan DATE NOT NULL,              -- simpan sebagai YYYY-MM-01
+    nominal DECIMAL(15,0) NOT NULL,
+    status ENUM('pending','dibayar') DEFAULT 'pending',
+    catatan VARCHAR(255) NULL,
+    dibayar_oleh INT NULL,
+    dibayar_pada TIMESTAMP NULL,
+    transaksi_id INT NULL,            -- link ke transaksi_keuangan
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY unik_gaji (ustad_id, bulan),
+    FOREIGN KEY (ustad_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (dibayar_oleh) REFERENCES users(id) ON DELETE SET NULL
+);
+
+-- Tabel tagihan SPP per santri per bulan
+CREATE TABLE IF NOT EXISTS tagihan_spp (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    santri_id INT NOT NULL,
+    kelas_id INT NOT NULL,
+    bulan DATE NOT NULL,              -- YYYY-MM-01
+    nominal DECIMAL(15,0) NOT NULL DEFAULT 50000,
+    status ENUM('belum','lunas') DEFAULT 'belum',
+    transaksi_id INT NULL,
+    catatan VARCHAR(255) NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY unik_spp (santri_id, kelas_id, bulan),
+    FOREIGN KEY (santri_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (kelas_id) REFERENCES kelas(id) ON DELETE CASCADE
+);
+
+-- Data awal kategori
+INSERT INTO kategori_keuangan (nama, jenis, ikon) VALUES
+('Infaq / Sedekah', 'masuk', 'fa-hand-holding-heart'),
+('SPP Bulanan', 'masuk', 'fa-money-bill-wave'),
+('Pemasukan Lain', 'masuk', 'fa-plus-circle'),
+('Gaji Ustad', 'keluar', 'fa-user-tie'),
+('Listrik & Air', 'keluar', 'fa-bolt'),
+('Peralatan & ATK', 'keluar', 'fa-box'),
+('Konsumsi', 'keluar', 'fa-utensils'),
+('Pengeluaran Lain', 'keluar', 'fa-minus-circle');
