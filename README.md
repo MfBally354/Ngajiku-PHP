@@ -92,51 +92,84 @@ define('SITE_URL', 'http://localhost/ngajiku');
 
 ```
 ngajiku/
-├── config/
-│   └── database.php          # Koneksi DB & konstanta
-├── includes/
-│   ├── auth_check.php        # Middleware auth
-│   ├── functions.php         # Helper functions
-│   ├── header.php            # Layout header + sidebar
-│   └── footer.php            # Layout footer
-├── assets/
-│   ├── css/style.css         # Stylesheet utama (tema hijau)
-│   └── js/main.js            # JavaScript
-├── uploads/
-│   ├── materi/               # File materi (PDF, gambar, video)
-│   └── tugas/                # File tugas santri
-├── pages/
-│   ├── admin/                # Halaman khusus admin
-│   │   ├── dashboard.php
-│   │   ├── users.php
-│   │   ├── kelas.php
-│   │   ├── pengumuman.php
-│   │   └── laporan.php
-│   ├── ustad/                # Halaman khusus ustad
-│   │   ├── dashboard.php
-│   │   ├── materi.php
-│   │   ├── nilai.php
-│   │   ├── tugas.php
-│   │   ├── absensi.php
-│   │   ├── hafalan.php
-│   │   └── pengumuman.php
-│   ├── parent/               # Halaman khusus orang tua
-│   │   ├── dashboard.php
-│   │   ├── nilai_anak.php
-│   │   ├── materi.php
-│   │   └── absensi.php
-│   └── santri/               # Halaman khusus santri
-│       ├── dashboard.php
-│       ├── materi.php
-│       ├── tugas.php
-│       ├── nilai.php
-│       └── absensi.php
-├── database/
-│   └── ngajiku.sql           # Skema & data awal
-├── index.php                 # Redirect ke login/dashboard
-├── login.php                 # Halaman login
-├── logout.php                # Proses logout
-└── router.php                # Redirect berdasarkan role
+├── assets
+│   ├── css
+│   │   └── style.css
+│   ├── images
+│   │   └── articles
+│   └── js
+│       └── main.js
+├── config
+│   └── database.php
+├── database
+│   └── ngajiku.sql
+├── database.sql
+├── docker-compose.yml
+├── Dockerfile
+├── git.py
+├── includes
+│   ├── auth_check.php
+│   ├── footer.php
+│   ├── functions.php
+│   └── header.php
+├── index.php
+├── info.php
+├── login.php
+├── logout.php
+├── mysql-custom.cnf
+├── pages
+│   ├── admin
+│   │   ├── dashboard.php
+│   │   ├── kelas.php
+│   │   ├── keuangan.php
+│   │   ├── laporan.php
+│   │   ├── materi.php
+│   │   ├── pengumuman.php
+│   │   ├── profil.php
+│   │   └── users.php
+│   ├── keuangan
+│   │   ├── dashboard.php
+│   │   ├── FileSQL.sql
+│   │   ├── gaji.php
+│   │   ├── laporan.php
+│   │   ├── pengawasan.php
+│   │   └── transaksi.php
+│   ├── parent
+│   │   ├── absensi.php
+│   │   ├── anak.php
+│   │   ├── dashboard.php
+│   │   ├── materi.php
+│   │   ├── nilai_anak.php
+│   │   ├── pengumuman.php
+│   │   └── profil.php
+│   ├── santri
+│   │   ├── absensi.php
+│   │   ├── dashboard.php
+│   │   ├── hafalan.php
+│   │   ├── materi.php
+│   │   ├── nilai.php
+│   │   ├── pengumuman.php
+│   │   ├── profil.php
+│   │   └── tugas.php
+│   └── ustad
+│       ├── absensi.php
+│       ├── dashboard.php
+│       ├── hafalan.php
+│       ├── kelas.php
+│       ├── materi.php
+│       ├── nilai.php
+│       ├── pengumuman.php
+│       ├── profil.php
+│       └── tugas.php
+├── README.md
+├── router.php
+├── sql
+│   └── database.sql
+├── test.php
+└── uploads
+    └── materi
+        ├── 69bf8bbce63da_1774160828.pdf
+        └── 69bf905ebfffe_1774162014.pdf
 ```
 ---
 
