@@ -34,55 +34,63 @@ $pageTitle = $pageTitle ?? SITE_NAME;
         <?php
         $role = $user['role'];
         $base = SITE_URL . '/pages/' . $role;
+        $keuanganBase = SITE_URL . '/pages/keuangan';
         $currentPage = basename($_SERVER['PHP_SELF']);
+        $currentDir  = basename(dirname($_SERVER['PHP_SELF']));
 
         // Menu sesuai role
         $menus = [];
 
         if ($role === 'admin') {
             $menus = [
-                ['icon'=>'fa-gauge',      'label'=>'Dashboard',     'url'=>$base.'/dashboard.php'],
-                ['icon'=>'fa-users',       'label'=>'Kelola User',   'url'=>$base.'/users.php'],
-                ['icon'=>'fa-school',      'label'=>'Kelola Kelas',  'url'=>$base.'/kelas.php'],
-                ['icon'=>'fa-book',        'label'=>'Materi',        'url'=>$base.'/materi.php'],
-                ['icon'=>'fa-bullhorn',    'label'=>'Pengumuman',    'url'=>$base.'/pengumuman.php'],
-                ['icon'=>'fa-chart-bar',   'label'=>'Laporan',       'url'=>$base.'/laporan.php'],
-                ['icon'=>'fa-money-bill-wave', 'label'=>'Keuangan', 'url'=>$base.'/keuangan.php'],
+                ['icon'=>'fa-gauge',           'label'=>'Dashboard',   'url'=>$base.'/dashboard.php'],
+                ['icon'=>'fa-users',           'label'=>'Kelola User', 'url'=>$base.'/users.php'],
+                ['icon'=>'fa-school',          'label'=>'Kelola Kelas','url'=>$base.'/kelas.php'],
+                ['icon'=>'fa-book',            'label'=>'Materi',      'url'=>$base.'/materi.php'],
+                ['icon'=>'fa-bullhorn',        'label'=>'Pengumuman',  'url'=>$base.'/pengumuman.php'],
+                ['icon'=>'fa-chart-bar',       'label'=>'Laporan',     'url'=>$base.'/laporan.php'],
+                ['icon'=>'fa-wallet',          'label'=>'Keuangan',    'url'=>$keuanganBase.'/dashboard.php', 'dir'=>'keuangan'],
             ];
         } elseif ($role === 'ustad') {
             $menus = [
-                ['icon'=>'fa-gauge',       'label'=>'Dashboard',     'url'=>$base.'/dashboard.php'],
-                ['icon'=>'fa-chalkboard',  'label'=>'Kelas Saya',    'url'=>$base.'/kelas.php'],
-                ['icon'=>'fa-book-open',   'label'=>'Materi',        'url'=>$base.'/materi.php'],
-                ['icon'=>'fa-tasks',       'label'=>'Tugas',         'url'=>$base.'/tugas.php'],
-                ['icon'=>'fa-star',        'label'=>'Nilai',         'url'=>$base.'/nilai.php'],
-                ['icon'=>'fa-calendar-check','label'=>'Absensi',     'url'=>$base.'/absensi.php'],
-                ['icon'=>'fa-scroll',      'label'=>'Hafalan',       'url'=>$base.'/hafalan.php'],
-                ['icon'=>'fa-bullhorn',    'label'=>'Pengumuman',    'url'=>$base.'/pengumuman.php'],
+                ['icon'=>'fa-gauge',           'label'=>'Dashboard',   'url'=>$base.'/dashboard.php'],
+                ['icon'=>'fa-chalkboard',      'label'=>'Kelas Saya',  'url'=>$base.'/kelas.php'],
+                ['icon'=>'fa-book-open',       'label'=>'Materi',      'url'=>$base.'/materi.php'],
+                ['icon'=>'fa-tasks',           'label'=>'Tugas',       'url'=>$base.'/tugas.php'],
+                ['icon'=>'fa-star',            'label'=>'Nilai',       'url'=>$base.'/nilai.php'],
+                ['icon'=>'fa-calendar-check',  'label'=>'Absensi',     'url'=>$base.'/absensi.php'],
+                ['icon'=>'fa-scroll',          'label'=>'Hafalan',     'url'=>$base.'/hafalan.php'],
+                ['icon'=>'fa-bullhorn',        'label'=>'Pengumuman',  'url'=>$base.'/pengumuman.php'],
+                ['icon'=>'fa-wallet',          'label'=>'Keuangan',    'url'=>$keuanganBase.'/dashboard.php', 'dir'=>'keuangan'],
             ];
         } elseif ($role === 'parent') {
             $menus = [
-                ['icon'=>'fa-gauge',       'label'=>'Dashboard',     'url'=>$base.'/dashboard.php'],
-                ['icon'=>'fa-child',       'label'=>'Anak Saya',     'url'=>$base.'/anak.php'],
-                ['icon'=>'fa-book-open',   'label'=>'Materi',        'url'=>$base.'/materi.php'],
-                ['icon'=>'fa-star',        'label'=>'Nilai Anak',    'url'=>$base.'/nilai_anak.php'],
-                ['icon'=>'fa-calendar-check','label'=>'Absensi',     'url'=>$base.'/absensi.php'],
-                ['icon'=>'fa-bullhorn',    'label'=>'Pengumuman',    'url'=>$base.'/pengumuman.php'],
+                ['icon'=>'fa-gauge',           'label'=>'Dashboard',   'url'=>$base.'/dashboard.php'],
+                ['icon'=>'fa-child',           'label'=>'Anak Saya',   'url'=>$base.'/anak.php'],
+                ['icon'=>'fa-book-open',       'label'=>'Materi',      'url'=>$base.'/materi.php'],
+                ['icon'=>'fa-star',            'label'=>'Nilai Anak',  'url'=>$base.'/nilai_anak.php'],
+                ['icon'=>'fa-calendar-check',  'label'=>'Absensi',     'url'=>$base.'/absensi.php'],
+                ['icon'=>'fa-bullhorn',        'label'=>'Pengumuman',  'url'=>$base.'/pengumuman.php'],
             ];
         } elseif ($role === 'santri') {
             $menus = [
-                ['icon'=>'fa-gauge',       'label'=>'Dashboard',     'url'=>$base.'/dashboard.php'],
-                ['icon'=>'fa-book-open',   'label'=>'Materi',        'url'=>$base.'/materi.php'],
-                ['icon'=>'fa-tasks',       'label'=>'Tugas Saya',    'url'=>$base.'/tugas.php'],
-                ['icon'=>'fa-star',        'label'=>'Nilai Saya',    'url'=>$base.'/nilai.php'],
-                ['icon'=>'fa-scroll',      'label'=>'Hafalan',       'url'=>$base.'/hafalan.php'],
-                ['icon'=>'fa-calendar-check','label'=>'Absensi',     'url'=>$base.'/absensi.php'],
-                ['icon'=>'fa-bullhorn',    'label'=>'Pengumuman',    'url'=>$base.'/pengumuman.php'],
+                ['icon'=>'fa-gauge',           'label'=>'Dashboard',   'url'=>$base.'/dashboard.php'],
+                ['icon'=>'fa-book-open',       'label'=>'Materi',      'url'=>$base.'/materi.php'],
+                ['icon'=>'fa-tasks',           'label'=>'Tugas Saya',  'url'=>$base.'/tugas.php'],
+                ['icon'=>'fa-star',            'label'=>'Nilai Saya',  'url'=>$base.'/nilai.php'],
+                ['icon'=>'fa-scroll',          'label'=>'Hafalan',     'url'=>$base.'/hafalan.php'],
+                ['icon'=>'fa-calendar-check',  'label'=>'Absensi',     'url'=>$base.'/absensi.php'],
+                ['icon'=>'fa-bullhorn',        'label'=>'Pengumuman',  'url'=>$base.'/pengumuman.php'],
             ];
         }
 
         foreach ($menus as $menu):
-            $active = (basename($menu['url']) === $currentPage) ? 'active' : '';
+            // Cek active: kalau menu punya 'dir', cocokkan folder; kalau tidak, cocokkan nama file
+            if (!empty($menu['dir'])) {
+                $active = ($currentDir === $menu['dir']) ? 'active' : '';
+            } else {
+                $active = (basename($menu['url']) === $currentPage) ? 'active' : '';
+            }
         ?>
         <a href="<?= $menu['url'] ?>" class="nav-item <?= $active ?>">
             <i class="fas <?= $menu['icon'] ?> nav-icon"></i>
