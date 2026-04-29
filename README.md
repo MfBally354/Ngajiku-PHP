@@ -175,6 +175,7 @@ ngajiku/
 
 
 **Proses Bisnis**
+<img width="809" height="723" alt="image" src="https://github.com/user-attachments/assets/8339c017-ba2f-4370-85bc-8c2c129e4073" />
 ```
 🔄 Alur Utama Sistem
 Admin → Buat Kelas → Assign Ustad → Daftarkan Santri → Hubungkan ke Orang Tua
