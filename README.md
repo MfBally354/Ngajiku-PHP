@@ -1,7 +1,11 @@
 # NgajiKu — Platform E-Learning Ngaji
-123
 Platform manajemen pembelajaran ngaji berbasis web (PHP + MySQL + Bootstrap 5).
+---
+DFD level 0
 ![WhatsApp Image 2026-04-02 at 12 24 23](https://github.com/user-attachments/assets/efcd5571-2bb2-4c77-82b3-d34e880fc4b6)
+---
+DFD level 1
+<img width="1002" height="481" alt="image" src="https://github.com/user-attachments/assets/7340d924-cfb2-4676-b880-92dcf7ba6c96" />
 ---
 <img width="1920" height="896" alt="Screenshot (803)" src="https://github.com/user-attachments/assets/6fd10101-e6ba-482b-b359-97ab05d744b3" />
 ---
