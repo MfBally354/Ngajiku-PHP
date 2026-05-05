@@ -51,4 +51,3 @@ networks:
   blog_network:
     driver: bridge
 
- 
